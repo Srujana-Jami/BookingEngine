@@ -1,0 +1,23 @@
+﻿@page
+@model BookingEngine.Pages.Reservation.ThanksModel
+@{
+    ViewData["Title"] = "Thanks";
+}
+<style>
+    .img-container {
+        text-align: center;
+    }
+   
+</style>
+<style>
+body { background-image: url('https://t4.ftcdn.net/jpg/02/83/48/09/360_F_283480979_HcpctOiqVpudNiCqOCUpuhycUeRr46nC.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%; }
+</style>
+<div class="img-container">
+    
+    <h1 style="color:black">Successfull! Thanks for booking</h1>
+    <h2 style="color:black">@Model.BookedByGuest.FirstName</h2>
+    <h2 style="color:black">@Model.BookedRoom.Description</h2>
+    <br />
+    <img src="@Model.BookedRoom.Base64Image" width="400" height="350" />
+</div>
+    

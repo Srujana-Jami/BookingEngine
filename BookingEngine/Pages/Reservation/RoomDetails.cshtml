@@ -1,0 +1,125 @@
+﻿@page
+@model BookingEngine.Pages.Reservation.RoomDetailsModel
+
+@{
+    ViewData["Title"] = "RoomDetails";
+}
+
+<div style="float:left;width:50%">
+
+    <img src="@Model.Room.Base64Image" width="700" height="330" />
+
+    <br />
+    <br />
+    <h5 class="text-info"> Description </h5>
+    <h6>
+        @Model.Room.Description
+    </h6>
+    <br />
+
+    <h4 class="text-info"> Hotel Specific Amenities </h4>
+    <h6>
+        .        Individually controlled room temperature
+        <br />
+        ·         400 thread count Matouk linen
+        <br />
+        ·         SONY High Definition (HD) Flat Screen 40” / 46” / 52” TV’s
+        <br />
+        ·         HD TV Channels with FREE On-Demand Movies
+        <br />
+        ·         WaterworksTM Spa-inspired bathrooms with radiant heated floors
+        <br />
+        ·         Heated towel racks (room dependent)
+        <br />
+        ·         Malin + Goetz Bath products
+        <br />
+        ·         Daily housekeeping and evening turn-down service
+        <br />
+        ·         Complimentary WiFi
+        <br />
+        ·         Complimentary bottled still and sparkling water
+        <br />
+        ·         Complimentary Parking
+        <br />
+        ·         Iron & ironing board, hairdryer and iPod dock/alarm clock
+        <br />
+        <br />
+    </h6>
+    <h4 class="text-info"> Important Reservation Information: </h4>
+    <h6>
+        . 12 and over age policy
+        <br />
+        . Non-smoking facility
+        <br />
+        . Check in time is: 3:00 PM
+        <br />
+        . Check out time is: 11:00 AM
+        <br />
+
+        . No pets are allowed on the premises
+        <br />
+        <br />
+    </h6>
+
+    <h5 class="text-info">
+        Amenities
+    </h5>
+    <h6>
+        . Bath tub with spray jets
+        <br />
+        . BathrobeFireplace
+        <br />
+        . Non-smoking
+        <br />
+        . Turn down service
+        <br />
+        . Air conditioning individually controlled in roomDown/feather pillows
+        <br />
+        . Self-controlled heating/cooling system
+        <br />
+        . Honeymoon suites
+        <br />
+        . VIP rooms
+        <br />
+        . Mountain view
+        <br />
+        . Luxury linen type
+        <br />
+        . Upgraded bathroom amenities
+        <br />
+        . High Definition (HD) Flat Panel Television  - 32 inches or greater
+        <br />
+        . Full size mirror
+        <br />
+        . Seating area with sofa/chair
+        <br />
+        . In-room massage available
+        <br />
+        . Premium bedding
+        <br />
+        . Rainfall showerhead
+        <br />
+        . Free WiFi
+    </h6>
+</div>
+<div style="float:right;width:30%">
+    <h5 class="text-info">Rack Rate</h5>
+    Celebrate with your friends and family in style.
+    Enjoy private and exclusive use of the mansion! This rate is for ALL our 9 best mansion bedrooms with en suite bathrooms and use of our indoor and outdoor guest spaces including kitchen and bar area.
+    No food or beverage included, but can be arranged for additional cost.
+    Sales taxes and service charges are extra. Rate based on double-occupancy for persons, max 20 guests.
+    Free Wifi and parking included.
+    <br />
+    <br />
+    <h5 style="color:cornflowerblue">Price:@Model.Room.Price</h5>
+
+    <h5 style="color:cornflowerblue">Taxes:@Model.Room.Taxes</h5>
+
+    <h5 style="color:deepskyblue">TotalPrice:@Model.Room.TotalPrice</h5>
+    <div>
+        <a href="@Url.Page("Guest", new {@roomId = Model.Room.RoomID,
+                @checkinDate = Model.CheckinDate,
+                @checkoutDate = Model.CheckoutDate,
+                @numberOfAdults = Model.NumberOfAdults})" class="btn btn-primary">Book Now</a>
+    </div>
+</div>

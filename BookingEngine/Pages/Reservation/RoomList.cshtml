@@ -1,0 +1,25 @@
+﻿@page
+@model BookingEngine.Pages.Reservation.RoomListModel
+
+@{
+    ViewData["Title"] = "RoomList";
+}
+
+<h1>List of Rooms</h1>
+
+@foreach (var room in Model.Rooms)
+{
+<div class="col-4">
+    <img src="@room.Base64Image" width="300" height="300" />
+    <h5 class="text-info"> Description </h5>
+    <h6>
+        @room.Description
+    </h6>
+
+    <a href="@Url.Page("RoomDetails", new {@roomId = room.RoomID,
+                @checkinDate = Model.CheckinDate,
+                @checkoutDate = Model.CheckoutDate,
+                @numberOfAdults = Model.NumberOfAdults})">View More Info
+    </a>
+</div>
+}

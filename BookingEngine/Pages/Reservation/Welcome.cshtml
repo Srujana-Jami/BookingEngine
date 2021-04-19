@@ -1,0 +1,53 @@
+﻿@page
+@model BookingEngine.Pages.Reservation.WelcomeModel
+
+@{
+    ViewData["Title"] = "Welcome";
+}
+<style>
+    body
+    {
+    background-image: url('https://coolwallpapers.me/picsup/5671424-hotel-wallpapers.jpg'); 
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%; 
+
+}
+</style>
+
+<h1 class="text-center" style="color:black">Welcome! Please select your dates below</h1>
+<hr />
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+
+            <form method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <div class="form-group" style="color:black">
+                    <label asp-for="Reservations.CheckInDate" class="control-label"></label>
+                    <input asp-for="Reservations.CheckInDate" min="@Model.TodaysDate" value="@Model.TodaysDate" class="form-control" />
+                    <span asp-validation-for="Reservations.CheckInDate" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="color:black">
+                    <label asp-for="Reservations.CheckOutDate" class="control-label"></label>
+                    <input asp-for="Reservations.CheckOutDate" min="2021-04-19" class="form-control" />
+                    <span asp-validation-for="Reservations.CheckOutDate" class="text-danger"></span>
+                </div>
+                <div class="form-group" style="color:black">
+                    <label asp-for="Reservations.NumberOfAdults" class="control-label"></label>
+                    <input asp-for="Reservations.NumberOfAdults" class="form-control" />
+                    <span asp-validation-for="Reservations.NumberOfAdults" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
