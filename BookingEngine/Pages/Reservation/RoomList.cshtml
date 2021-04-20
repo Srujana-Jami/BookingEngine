@@ -4,22 +4,40 @@
 @{
     ViewData["Title"] = "RoomList";
 }
+<style>
 
-<h1>List of Rooms</h1>
+    .img-container {
+        width: 30%;
+        min-height: 100px;
+        float: right;
+    }
+</style>
+<style>
+body { background-image: url('https://cdn.nohat.cc/thumb/f/720/6407053161529344.jpg');
+       background-repeat: no-repeat;
+       background-attachment: fixed;
+       background-size: 100% 100%;
+
+}
+</style>
+<h1 class="text-center" style="color:black">List of Rooms</h1>
 
 @foreach (var room in Model.Rooms)
 {
-<div class="col-4">
-    <img src="@room.Base64Image" width="300" height="300" />
-    <h5 class="text-info"> Description </h5>
-    <h6>
-        @room.Description
-    </h6>
+    <div class="img-container">
+        <br />
+        <img src="@room.Base64Image" width="300" height="300" />
+        <h5> Description </h5>
+        <h6>
+            @room.Description
+        </h6>
 
-    <a href="@Url.Page("RoomDetails", new {@roomId = room.RoomID,
+        <a href="@Url.Page("RoomDetails", new {@roomId = room.RoomID,
                 @checkinDate = Model.CheckinDate,
                 @checkoutDate = Model.CheckoutDate,
-                @numberOfAdults = Model.NumberOfAdults})">View More Info
-    </a>
-</div>
+                @numberOfAdults = Model.NumberOfAdults})" class="btn btn-primary">
+            View More Info
+        </a>
+
+    </div>
 }
