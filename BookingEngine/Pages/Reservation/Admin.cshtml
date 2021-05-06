@@ -1,0 +1,86 @@
+﻿@page
+@model BookingEngine.Pages.Reservation.AdminModel
+
+@{
+    ViewData["Title"] = "Admin";
+}
+
+<style>
+body 
+{
+    background-image: url('https://boulevardla.com/blog/wp-content/uploads/2018/07/boulevard-medical-properties-iStock-840091762.jpg'); 
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+
+}
+</style>
+<h1 class="text-center" style="color:tomato">List Of Reservations Done!</h1>
+
+<p style="text-align:right">
+    <a asp-page="Welcome" class="btn btn-primary">New Reservation</a>
+</p>
+<table class="table">
+    <thead>
+        <tr style="color:midnightblue">
+            <th>
+                @Html.DisplayNameFor(model => model.Rooms[0].Description) 
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Guest[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservations[0].Guest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservations[0].NumberOfAdults)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservations[0].Room)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservations[0].CheckInDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Reservations[0].CheckOutDate)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Reservations)
+        {
+            <tr style="color:black">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Guest.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Guest.GuestID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfAdults)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Room.RoomID)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckInDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CheckOutDate)
+                </td>
+                <td>
+
+                    <a asp-page="./GuestEdit" class="btn btn-primary" asp-route-id="@item.Id">Edit</a>
+                    
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
