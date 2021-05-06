@@ -4,8 +4,10 @@
 @{
     ViewData["Title"] = "GuestEdit";
 }
-
-<h1>GuestEdit</h1>
+<style>
+body { background-image: url('https://www.mccullyhouseinn.com/wp-content/uploads/2018/03/Rm-9-7.jpg'); background-repeat: no-repeat; background-attachment: fixed; background-size: 100% 100%; }
+</style>
+<h1 class="text-center">Please! Check Guest and Payment details</h1>
 
 <hr />
 <div class="row">
@@ -13,6 +15,7 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Guest.GuestID" />
+            <h1 style="color:crimson">Guest Info</h1>
             <div class="form-group">
                 <label asp-for="Guest.FirstName" class="control-label"></label>
                 <input asp-for="Guest.FirstName" class="form-control" />
@@ -48,6 +51,8 @@
                 <input asp-for="Guest.ZipCode" class="form-control" />
                 <span asp-validation-for="Guest.ZipCode" class="text-danger"></span>
             </div>
+            <br />
+            <h2 style="color:crimson">Payment Info</h2>
             <div class="form-group">
                 <label asp-for="Guest.CreditCardNumber" class="control-label"></label>
                 <input asp-for="Guest.CreditCardNumber" class="form-control" />
@@ -69,7 +74,7 @@
                 <span asp-validation-for="Guest.CVV" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <input type="submit" value="Update" class="btn btn-primary" />
             </div>
         </form>
     </div>
